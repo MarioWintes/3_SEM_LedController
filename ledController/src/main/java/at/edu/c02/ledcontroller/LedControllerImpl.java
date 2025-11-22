@@ -66,4 +66,9 @@ public class LedControllerImpl implements LedController {
             System.out.println("LED " + id + " is not currently off. Color: " + light.getString("color"));
         }
     }
+
+    @Override
+    public void setColorAndState(int id) throws IOException {
+        setColorAndState(id);
+    }
 }

@@ -33,6 +33,8 @@ public class LedControllerTest {
         ledController.getGroupLeds("A");
         verify(apiService).getLights();
 
+        //verify(apiService).setColorAndStateOfLight();
+
         verifyNoMoreInteractions(apiService);
     }
 
