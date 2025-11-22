@@ -18,3 +18,4 @@ Wichtige Abstimmung im 2. Daily, wegen der createResponse Funktion, weil wir bei
 
 Story 1.2: anlaufschwierigkeiten das gesamte Projekt zu verstehen.
 Test noch nicht implementiert
+

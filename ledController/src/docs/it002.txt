@@ -1,0 +1,10 @@
+# 2. Sprint Planning
+Ziele:
+1.3 --> Alex, Jeannine
+1.2 Test fertigstellen --> Mario, Raphi, Michi
+2.1 --> Mario, Raphi, Michi
+evtl 2.2 starten --> Alex, Jeannine
+
+# 1. Daily
+Problem State vom Light zurückgeben -> Evtl ganzes Objekt zurückgeben
+1.3 Test: Geht voran
