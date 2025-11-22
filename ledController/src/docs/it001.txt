@@ -5,3 +5,6 @@ Story 1.1 -> Alex, Jeannine
 Stroy 1.2 + Tests -> Mario, Raphi, Michi
     Bewertet mit 3 Storypoints
 
+# 1. Daily
+Pushed create Connection für andere Gruppe
+Start arbeit an getLight + getLightperGroup
