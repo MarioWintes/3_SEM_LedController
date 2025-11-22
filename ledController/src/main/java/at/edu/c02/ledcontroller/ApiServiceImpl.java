@@ -34,12 +34,17 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public JSONObject getLight(int id) throws IOException {
-        String response = createResponse();
-        JSONObject jsonObject = new JSONObject(response);
+        JSONObject jsonObject = getLights();
+
 
         JSONArray lights = jsonObject.getJSONArray("lights");
-
-        return lights.getJSONObject(id);
+        for(int i=0; i<lights.length(); i++){
+            JSONObject light = lights.getJSONObject(i);
+            if(light.get("id").equals(id)){
+                return light;
+            }
+        }
+        return null;
     }
 
     private String createResponse() throws IOException {

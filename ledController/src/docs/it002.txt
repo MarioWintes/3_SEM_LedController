@@ -8,3 +8,7 @@ evtl 2.2 starten --> Alex, Jeannine
 # 1. Daily
 Problem State vom Light zurückgeben -> Evtl ganzes Objekt zurückgeben
 1.3 Test: Geht voran
+
+# 2. Daily
+Probleme beim returnen des Lights
+1.3 Test weitere Fortschritte
