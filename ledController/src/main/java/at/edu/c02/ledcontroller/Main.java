@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         LedController ledController = new LedControllerImpl(new ApiServiceImpl());
 
+
         String input = "";
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while(!input.equalsIgnoreCase("exit"))
@@ -25,8 +26,14 @@ public class Main {
             {
                 ledController.demo();
             } else if (input.equalsIgnoreCase("ledgroup")) {
-
                 ledController.getGroupLeds("A");
+            }else if(input.equalsIgnoreCase("groupstatus")) {
+                ledController.getGroupLeds("A");
+            }else if(input.equalsIgnoreCase("status")) {
+                System.out.print("Please specify LED ID: ");
+                Scanner sc = new Scanner(System.in);
+                int id = sc.nextInt();
+                ledController.getLight(id);
             }
         }
     }
