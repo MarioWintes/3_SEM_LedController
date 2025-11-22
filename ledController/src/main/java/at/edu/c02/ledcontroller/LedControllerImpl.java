@@ -32,7 +32,7 @@ public class LedControllerImpl implements LedController {
 
 
     @Override
-    public void getGroupLeds(String targetGroup) throws IOException {
+    public JSONArray getGroupLeds(String targetGroup) throws IOException {
 
         JSONObject response = apiService.getLights();
 
@@ -51,7 +51,7 @@ public class LedControllerImpl implements LedController {
             }
         }
 
-        System.out.println(lightsPerGroup.toString(2));
+        return lightsPerGroup;
 
 
     }

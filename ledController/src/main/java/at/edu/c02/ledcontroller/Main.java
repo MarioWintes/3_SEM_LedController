@@ -1,5 +1,7 @@
 package at.edu.c02.ledcontroller;
 
+import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,7 +28,8 @@ public class Main {
             {
                 ledController.demo();
             } else if (input.equalsIgnoreCase("ledgroup")) {
-                ledController.getGroupLeds("A");
+                JSONArray lights = ledController.getGroupLeds("A");
+                System.out.println(lights.toString(2));
             }else if(input.equalsIgnoreCase("groupstatus")) {
                 ledController.getGroupLeds("A");
             }else if(input.equalsIgnoreCase("status")) {
@@ -34,6 +37,8 @@ public class Main {
                 Scanner sc = new Scanner(System.in);
                 int id = sc.nextInt();
                 ledController.getLight(id);
+
+
             }
         }
     }
