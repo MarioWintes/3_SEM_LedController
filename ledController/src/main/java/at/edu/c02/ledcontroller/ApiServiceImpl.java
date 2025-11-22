@@ -49,10 +49,9 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public void setColorAndStateOfLight(JSONObject light) throws IOException{
+    public void setColorAndStateOfLight(int id, boolean state, String color) throws IOException{
         HttpURLConnection con = getConnection("PUT", "vs44kgGGmVV","https://balanced-civet-91.hasura.app/api/rest/setLight");
-        String jsonInputString = "{\"id\": 56, \"state\": true, \"color\": \"red\"}";
-
+        String jsonInputString = "{\"id\":" + id + ",\"state\": " + state + ",\"color\": \"" + color + "\"}";
         con.setDoOutput(true);
 
         try(OutputStream os = con.getOutputStream()) {

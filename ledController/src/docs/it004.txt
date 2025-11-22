@@ -2,3 +2,7 @@
 Ziele:
 2.1 End-to-End Tests, Refactoring -> Alex, Jeannine
 2.2 Mario, Michael, Raphael
+
+# 1. Daily
+2.1 Refactoring fertig und arbeiten an dem End-to-End Test
+2.2. In Arbeit, schaut bis jetzt gut aus, keine Probleme bis jetzt

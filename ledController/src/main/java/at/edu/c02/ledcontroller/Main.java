@@ -27,19 +27,20 @@ public class Main {
             if(input.equalsIgnoreCase("demo"))
             {
                 ledController.demo();
-            } else if (input.equalsIgnoreCase("ledgroup")) {
+            } else if (input.equalsIgnoreCase("groupstatus")) {
                 JSONArray lights = ledController.getGroupLeds("A");
                 System.out.println(lights.toString(2));
-            }else if(input.equalsIgnoreCase("groupstatus")) {
-                ledController.getGroupLeds("A");
             }else if(input.equalsIgnoreCase("status")) {
                 System.out.print("Please specify LED ID: ");
                 Scanner sc = new Scanner(System.in);
                 int id = sc.nextInt();
                 ledController.getLight(id);
-            }
-            else if(input.equalsIgnoreCase("on")) {
-                ledController.setColorAndState(58);
+            }else if(input.equalsIgnoreCase("turnon")) {
+                System.out.println("Note - IDs of Group A from 54 to 61");
+                System.out.print("Please enter ID of LED: ");
+                Scanner sc = new Scanner(System.in);
+                int id = sc.nextInt();
+                ledController.setColorAndState(id);
             }
         }
     }
