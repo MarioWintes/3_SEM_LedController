@@ -80,7 +80,7 @@ public class LedControllerImpl implements LedController {
 
         for (Integer id : ids) {
             setColorAndState(id, false,"#000000");
-            Thread.sleep(400);
+            Thread.sleep(300);
         }
     }
 
