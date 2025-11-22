@@ -47,6 +47,11 @@ public class ApiServiceImpl implements ApiService {
         return null;
     }
 
+    @Override
+    public void setColorAndStateOfLight(int id) {
+
+    }
+
     private String createResponse() throws IOException {
         // Connect to the server
         URL url = new URL("https://balanced-civet-91.hasura.app/api/rest/getLights");
