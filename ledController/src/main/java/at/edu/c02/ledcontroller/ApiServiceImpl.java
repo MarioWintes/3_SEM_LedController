@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -49,13 +50,39 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public void setColorAndStateOfLight(JSONObject light) throws IOException{
-        HttpURLConnection connection = getConnection("POST", "eqf9yLpDg2");
-        light.put("on", true);
-        light.put("color", "00ff00");
+        HttpURLConnection con = getConnection("PUT", "vs44kgGGmVV","https://balanced-civet-91.hasura.app/api/rest/setLight");
+        String jsonInputString = "{\"id\": 56, \"state\": true, \"color\": \"red\"}";
+
+        con.setDoOutput(true);
+
+        try(OutputStream os = con.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        // Read the response code
+        int responseCode = con.getResponseCode();
+        if(responseCode != HttpURLConnection.HTTP_OK) {
+            // Something went wrong with the request
+            throw new IOException("Error: getLights request failed with response code " + responseCode);
+        }
+
+        // The request was successful, read the response
+        BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        // Save the response in this StringBuilder
+        StringBuilder sb = new StringBuilder();
+
+        int character;
+        // Read the response, character by character. The response ends when we read -1.
+        while((character = reader.read()) != -1) {
+            sb.append((char) character);
+        }
+
+        System.out.println(sb.toString());
     }
 
     private String createResponse() throws IOException {
-        HttpURLConnection connection = getConnection("GET", "Todo");
+        HttpURLConnection connection = getConnection("GET", "Todo","https://balanced-civet-91.hasura.app/api/rest/getLights");
         // Read the response code
         int responseCode = connection.getResponseCode();
         if(responseCode != HttpURLConnection.HTTP_OK) {
@@ -77,9 +104,9 @@ public class ApiServiceImpl implements ApiService {
        return sb.toString();
     }
 
-    private static HttpURLConnection getConnection(String requestMethod, String prop) throws IOException {
+    private static HttpURLConnection getConnection(String requestMethod, String prop, String urlLocal) throws IOException {
         // Connect to the server
-        URL url = new URL("https://balanced-civet-91.hasura.app/api/rest/getLights");
+        URL url = new URL(urlLocal);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         // and send a GET request
         connection.setRequestMethod(requestMethod);
