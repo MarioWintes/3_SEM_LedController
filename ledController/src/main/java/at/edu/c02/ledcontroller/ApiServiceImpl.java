@@ -48,17 +48,14 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public void setColorAndStateOfLight(int id) {
-
+    public void setColorAndStateOfLight(JSONObject light) throws IOException{
+        HttpURLConnection connection = getConnection("POST", "eqf9yLpDg2");
+        light.put("on", true);
+        light.put("color", "00ff00");
     }
 
     private String createResponse() throws IOException {
-        // Connect to the server
-        URL url = new URL("https://balanced-civet-91.hasura.app/api/rest/getLights");
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        // and send a GET request
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("X-Hasura-Group-ID", "Todo");
+        HttpURLConnection connection = getConnection("GET", "Todo");
         // Read the response code
         int responseCode = connection.getResponseCode();
         if(responseCode != HttpURLConnection.HTTP_OK) {
@@ -78,5 +75,15 @@ public class ApiServiceImpl implements ApiService {
         }
 
        return sb.toString();
+    }
+
+    private static HttpURLConnection getConnection(String requestMethod, String prop) throws IOException {
+        // Connect to the server
+        URL url = new URL("https://balanced-civet-91.hasura.app/api/rest/getLights");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        // and send a GET request
+        connection.setRequestMethod(requestMethod);
+        connection.setRequestProperty("X-Hasura-Group-ID", prop);
+        return connection;
     }
 }

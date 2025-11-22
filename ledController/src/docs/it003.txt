@@ -2,3 +2,7 @@
 Ziele:
 2.1 Alex, Jeannine
 2.2 Mario, Raphael, Michael
+
+# 1. Daily
+Implementierung 2.1 weitgehend fertig, Tests noch offen
+2.2 Idee steht, Abhängigkeiten zu 2.1
