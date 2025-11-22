@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class handles the actual logic
@@ -68,7 +70,31 @@ public class LedControllerImpl implements LedController {
     }
 
     @Override
-    public void setColorAndState(int id) throws IOException {
-        apiService.setColorAndStateOfLight(id, true,"red");
+    public void setColorAndState(int id, boolean state, String color) throws IOException {
+        apiService.setColorAndStateOfLight(id, state,color);
+    }
+
+    @Override
+    public void turnOffAllLeds() throws IOException, InterruptedException {
+        List<Integer> ids = getLightIdsPerGroup("A");
+
+        for (Integer id : ids) {
+            setColorAndState(id, false,"#000000");
+            Thread.sleep(400);
+        }
+    }
+
+    public List<Integer> getLightIdsPerGroup(String targetGroup) throws IOException
+    {
+        List<Integer> ids = new ArrayList<>(); 
+        JSONArray lights = getGroupLeds(targetGroup);
+
+        for (int i = 0; i < lights.length(); i++) {
+            JSONObject light = lights.getJSONObject(i);
+
+            ids.add(light.getInt("id"));
+        }
+
+       return ids;
     }
 }
