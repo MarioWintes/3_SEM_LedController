@@ -11,3 +11,10 @@ Start arbeit an getLight + getLightperGroup
 
 # 2. Daily
 Refactored createConnection liefert jetzt String
+
+# 1. Retro
+Story 1.1: kleine schwierigkeiten, redundance Code brauchte 2 Anläufe
+Wichtige Abstimmung im 2. Daily, wegen der createResponse Funktion, weil wir beide diese Funktion brauchten
+
+Story 1.2: anlaufschwierigkeiten das gesamte Projekt zu verstehen.
+Test noch nicht implementiert
