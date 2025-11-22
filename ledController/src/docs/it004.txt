@@ -10,3 +10,10 @@ Ziele:
 # 2. Daily
  Framework Vorbereitet für  2.2 -> Implementation noch offen
 EndToEnd Test für 2.1 fertig gestellt
+
+# Retro
+Alles erledigt was vorgenommen wurde
+Vorher mehr Zeit zum Planen
+Bufferzeiten einplanen zb 20 -30 % der Zeit
+Viel code mehrfach angreifen weil die Abstimmung nicht stattgefunden hat
+Storys besser abschätzen

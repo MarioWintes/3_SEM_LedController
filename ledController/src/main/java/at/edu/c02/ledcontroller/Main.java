@@ -11,7 +11,7 @@ public class Main {
     /**
      * This is the main program entry point. TODO: add new commands when implementing additional features.
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         LedController ledController = new LedControllerImpl(new ApiServiceImpl());
 
 
@@ -40,7 +40,10 @@ public class Main {
                 System.out.print("Please enter ID of LED: ");
                 Scanner sc = new Scanner(System.in);
                 int id = sc.nextInt();
-                ledController.setColorAndState(id);
+                ledController.setColorAndState(id, true, "red");
+            } else if (input.equalsIgnoreCase("turnoff")) {
+                ledController.turnOffAllLeds();
+
             }
         }
     }
