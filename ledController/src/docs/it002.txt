@@ -12,3 +12,10 @@ Problem State vom Light zurückgeben -> Evtl ganzes Objekt zurückgeben
 # 2. Daily
 Probleme beim returnen des Lights
 1.3 Test weitere Fortschritte
+
+#1 Retro
+
+1.3 Abgeschlossen  -> Noch Anpassungen bei 1.1 mussten gemacht werden
+-> Aufgabe dauerte deshalb länger
+1.2 Abgeschlossen
+2.1 & 2.2 noch nicht begonnen
