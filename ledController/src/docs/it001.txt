@@ -8,3 +8,6 @@ Stroy 1.2 + Tests -> Mario, Raphi, Michi
 # 1. Daily
 Pushed create Connection für andere Gruppe
 Start arbeit an getLight + getLightperGroup
+
+# 2. Daily
+Refactored createConnection liefert jetzt String

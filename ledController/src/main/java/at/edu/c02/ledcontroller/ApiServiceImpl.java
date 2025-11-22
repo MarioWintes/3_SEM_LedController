@@ -1,5 +1,6 @@
 package at.edu.c02.ledcontroller;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -32,10 +33,16 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public JSONObject getLight(int id) throws IOException {
+    public Boolean getLight(int id) throws IOException {
         String response = createResponse();
+        JSONObject jsonObject = new JSONObject(response);
 
-        return new JSONObject(response);
+        JSONArray lights = jsonObject.getJSONArray("lights");
+        JSONObject lightByIndex = lights.getJSONObject(id);
+
+        System.out.println("Light status for light " + id + " is " +  lightByIndex.getBoolean("state"));
+
+        return lightByIndex.getBoolean("state");
     }
 
     private String createResponse() throws IOException {
