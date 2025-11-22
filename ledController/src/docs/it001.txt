@@ -1,0 +1,7 @@
+# 1. Sprint Planning
+Ziele:
+Story 1.1 -> Alex, Jeannine
+    Bewertet mit 1 Storypoint
+Stroy 1.2 + Tests -> Mario, Raphi, Michi
+    Bewertet mit 3 Storypoints
+
