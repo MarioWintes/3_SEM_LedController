@@ -1,0 +1,4 @@
+# 4. Sprint Planning
+Ziele:
+2.1 End-to-End Tests, Refactoring -> Alex, Jeannine
+2.2 Mario, Michael, Raphael
