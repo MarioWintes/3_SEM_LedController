@@ -37,8 +37,9 @@ public class Main {
                 Scanner sc = new Scanner(System.in);
                 int id = sc.nextInt();
                 ledController.getLight(id);
-
-
+            }
+            else if(input.equalsIgnoreCase("on")) {
+                ledController.setColorAndState(58);
             }
         }
     }

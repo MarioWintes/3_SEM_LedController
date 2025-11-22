@@ -6,3 +6,10 @@ Ziele:
 # 1. Daily
 Implementierung 2.1 weitgehend fertig, Tests noch offen
 2.2 Idee steht, Abhängigkeiten zu 2.1
+
+# 2. Daily.
+Krise bei Connection für setzen des Light
+
+Retro
+
+Viele Probleme bei Aufgabe 2.1 -> Dadurch konnte auch nur dieser Task fertiggestellt werden
