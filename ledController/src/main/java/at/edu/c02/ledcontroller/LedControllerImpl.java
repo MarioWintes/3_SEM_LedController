@@ -69,7 +69,6 @@ public class LedControllerImpl implements LedController {
 
     @Override
     public void setColorAndState(int id) throws IOException {
-        JSONObject light = apiService.getLight(id);
-        apiService.setColorAndStateOfLight(light);
+        apiService.setColorAndStateOfLight(id, true,"red");
     }
 }
