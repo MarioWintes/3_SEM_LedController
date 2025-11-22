@@ -22,8 +22,26 @@ public class LedControllerTest {
 
     @Test
     public void testApiService() throws Exception{
+        ApiService apiService = mock(ApiService.class);
+
+
+        JSONObject response = new JSONObject();
+        response.put("lights",new JSONArray());
+
+        when(apiService.getLights()).thenReturn(response);
+
+        LedController ledController = new LedControllerImpl(apiService);
+
+        ledController.getGroupLeds("A");
+        verify(apiService).getLights();
+
+        verifyNoMoreInteractions(apiService);
+    }
+
+
+    @Test
+    public void testEndToEnd_2_1_Task()throws Exception{
         ApiService api = new ApiServiceImpl();
-        LedController controller = new LedControllerImpl(api);
 
         int ledId = 61;
         boolean state = true;
@@ -32,7 +50,7 @@ public class LedControllerTest {
 
         api.setColorAndStateOfLight(ledId, state, color);
 
-        JSONObject response = api.getLight(ledId);
+        JSONObject response = api.getLights();
         JSONArray lights = response.getJSONArray("lights");
         JSONObject led = lights.getJSONObject(0);
 
@@ -41,15 +59,6 @@ public class LedControllerTest {
 
         assertEquals("LED status did not match!", state, on);
         assertEquals("LED color did not match!", color, cur_color);
-    }
-    @Test
-    public void testEndToEnd_2_1_Task()throws Exception{
-        ApiService apiService = mock(ApiService.class);
-
-        JSONObject response = new JSONObject();
-
-        LedController ledController = new LedControllerImpl(apiService);
-        ledController.setColorAndState(61);
     }
 
 }
